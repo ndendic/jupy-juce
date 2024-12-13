@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "FH_SQLModel"
+  site-url: "https://ndendic.github.io/FH_SQLModel"
+  description: "Wrapper for SQLModel in FastHTML"
+  repo-branch: main
+  repo-url: "https://github.com/ndendic/FH_SQLModel"
