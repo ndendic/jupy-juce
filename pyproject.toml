@@ -23,7 +23,13 @@ dependencies = [
     "python-dotenv>=1.0.1",
 ]
 
+[build-system]
+requires = ["setuptools==68.2.2"]
+build-backend = "setuptools.build_meta"
+
+
 [dependency-groups]
 dev = [
     "nbdev>=2.3.34",
+    "setuptools>=75.6.0",
 ]
