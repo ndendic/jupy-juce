@@ -4,7 +4,7 @@
 __all__ = ['system_prompt', 'model', 'notebook_agent', 'refresh_agent', 'create_cell', 'find_current_notebook',
            'get_notebook_history', 'create_history_aware_prompt', 'run_with_history', 'prompt']
 
-# %% ../nbs/00_core.ipynb 2
+# %% ../nbs/00_core.ipynb 3
 import os
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
@@ -17,7 +17,7 @@ load_dotenv()
 import nest_asyncio
 nest_asyncio.apply()
 
-# %% ../nbs/00_core.ipynb 3
+# %% ../nbs/00_core.ipynb 6
 from datetime import date
 system_prompt = f"""
 You are a helpful assistant that operates in a Jupyter notebook.
@@ -27,20 +27,20 @@ You can also use tools to help you with your tasks.
 Today's date is {date.today().strftime('%Y-%m-%d')}.
 """
 
-# %% ../nbs/00_core.ipynb 4
+# %% ../nbs/00_core.ipynb 7
 from typing import cast
 model = cast(KnownModelName, os.getenv('PYDANTIC_AI_MODEL', 'openai:gpt-4o'))
 print(f'PydanticAI is using model: {model}')
 notebook_agent = Agent(model, system_prompt=system_prompt)
 
-# %% ../nbs/00_core.ipynb 5
+# %% ../nbs/00_core.ipynb 8
 def refresh_agent():
     global notebook_agent
     notebook_agent = Agent(model, system_prompt=system_prompt)
     return notebook_agent
 
 
-# %% ../nbs/00_core.ipynb 6
+# %% ../nbs/00_core.ipynb 10
 from IPython.display import display, Markdown
 from typing import Literal
 
@@ -70,7 +70,7 @@ def create_cell(ctx: RunContext[str], content: str, cell_type: Literal['code', '
     
     return f"Created new {cell_type} cell"
 
-# %% ../nbs/00_core.ipynb 13
+# %% ../nbs/00_core.ipynb 20
 import os
 import json
 from pathlib import Path
@@ -129,7 +129,7 @@ def find_current_notebook() -> Optional[dict]:
         return None
 
 
-# %% ../nbs/00_core.ipynb 14
+# %% ../nbs/00_core.ipynb 21
 def get_notebook_history(max_cells: int = 5) -> list:
     """Get the content of notebook cells between current and last prompt cell.
     
@@ -185,7 +185,7 @@ def get_notebook_history(max_cells: int = 5) -> list:
         print(f"Error getting notebook history: {e}")
         return []
 
-# %% ../nbs/00_core.ipynb 16
+# %% ../nbs/00_core.ipynb 25
 def create_history_aware_prompt(prompt: str, message_history: list = None, max_history: int = 5) -> tuple:
     """Create a prompt with notebook history context and message history.
     
@@ -246,7 +246,7 @@ def create_history_aware_prompt(prompt: str, message_history: list = None, max_h
         print(f"Error creating history-aware prompt: {e}")
         return prompt, message_history
 
-# %% ../nbs/00_core.ipynb 18
+# %% ../nbs/00_core.ipynb 29
 from typing import Any
 def run_with_history(agent: Agent, prompt: str, message_history: list = None, max_history: int = 5) -> Any:
     """Run the agent with notebook and conversation history context.
@@ -267,7 +267,7 @@ def run_with_history(agent: Agent, prompt: str, message_history: list = None, ma
     )
     return agent.run_sync(prompt, message_history=combined_history)
 
-# %% ../nbs/00_core.ipynb 21
+# %% ../nbs/00_core.ipynb 34
 from IPython.core.magic import register_cell_magic
 
 @register_cell_magic

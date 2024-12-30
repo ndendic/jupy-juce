@@ -374,27 +374,6 @@ wheels = [
 ]
 
 [[package]]
-name = "fh-sqlmodel"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "ipynbname" },
-    { name = "jupyter" },
-    { name = "nbdev" },
-    { name = "pydantic-ai" },
-    { name = "python-dotenv" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "ipynbname", specifier = ">=2024.1.0.0" },
-    { name = "jupyter", specifier = ">=1.1.1" },
-    { name = "nbdev", specifier = ">=2.3.34" },
-    { name = "pydantic-ai", specifier = ">=0.0.15" },
-    { name = "python-dotenv", specifier = ">=1.0.1" },
-]
-
-[[package]]
 name = "fqdn"
 version = "1.5.1"
 source = { registry = "https://pypi.org/simple" }
@@ -731,6 +710,35 @@ sdist = { url = "https://files.pythonhosted.org/packages/58/f3/af28ea964ab8bc1e4
 wheels = [
     { url = "https://files.pythonhosted.org/packages/38/64/285f20a31679bf547b75602702f7800e74dbabae36ef324f716c02804753/jupyter-1.1.1-py2.py3-none-any.whl", hash = "sha256:7a59533c22af65439b24bbe60373a4e95af8f16ac65a6c00820ad378e3f7cc83", size = 2657 },
 ]
+
+[[package]]
+name = "jupyter-assistant"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "ipynbname" },
+    { name = "jupyter" },
+    { name = "nbdev" },
+    { name = "pydantic-ai" },
+    { name = "python-dotenv" },
+]
+
+[package.dependency-groups]
+dev = [
+    { name = "nbdev" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "ipynbname", specifier = ">=2024.1.0.0" },
+    { name = "jupyter", specifier = ">=1.1.1" },
+    { name = "nbdev", specifier = ">=2.3.34" },
+    { name = "pydantic-ai", specifier = ">=0.0.15" },
+    { name = "python-dotenv", specifier = ">=1.0.1" },
+]
+
+[package.metadata.dependency-groups]
+dev = [{ name = "nbdev", specifier = ">=2.3.34" }]
 
 [[package]]
 name = "jupyter-client"
