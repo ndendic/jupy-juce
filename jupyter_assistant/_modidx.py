@@ -10,9 +10,11 @@ d = { 'settings': { 'branch': 'main',
                                                                                                 'jupyter_assistant/core.py'),
                                         'jupyter_assistant.core.find_current_notebook': ( 'core.html#find_current_notebook',
                                                                                           'jupyter_assistant/core.py'),
+                                        'jupyter_assistant.core.get_current_agent': ( 'core.html#get_current_agent',
+                                                                                      'jupyter_assistant/core.py'),
                                         'jupyter_assistant.core.get_notebook_history': ( 'core.html#get_notebook_history',
                                                                                          'jupyter_assistant/core.py'),
                                         'jupyter_assistant.core.prompt': ('core.html#prompt', 'jupyter_assistant/core.py'),
-                                        'jupyter_assistant.core.refresh_agent': ('core.html#refresh_agent', 'jupyter_assistant/core.py'),
                                         'jupyter_assistant.core.run_with_history': ( 'core.html#run_with_history',
-                                                                                     'jupyter_assistant/core.py')}}}
+                                                                                     'jupyter_assistant/core.py'),
+                                        'jupyter_assistant.core.set_agent': ('core.html#set_agent', 'jupyter_assistant/core.py')}}}
