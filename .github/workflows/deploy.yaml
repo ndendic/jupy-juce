@@ -11,4 +11,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps: [uses: fastai/workflows/quarto-ghp@master]
