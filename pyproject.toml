@@ -20,6 +20,7 @@ dependencies = [
     "ipynbname>=2024.1.0.0",
     "jupyter>=1.1.1",
     "pydantic-ai>=0.0.15",
+    "pydantic-settings>=2.7.1",
     "python-dotenv>=1.0.1",
 ]
 
@@ -30,6 +31,9 @@ build-backend = "setuptools.build_meta"
 
 [dependency-groups]
 dev = [
+    "idna>=3.10",
     "nbdev>=2.3.34",
+    "requests>=2.32.3",
     "setuptools>=75.6.0",
+    "twine>=6.0.1",
 ]
